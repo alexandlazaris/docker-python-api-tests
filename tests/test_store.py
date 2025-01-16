@@ -13,7 +13,7 @@ headers = {
 
 # check status code
 def test_get_store_inventory():
-    response = requests.get(constants.BASE_URL + "/store/inventory", headers=headers)
+    response = requests.get(f'{constants.BASE_URL}/store/inventory', headers=headers)
     assert response.status_code == 200
 
 # check status code, response body matches input body, showcasing assertion errors in test output
@@ -26,7 +26,7 @@ def test_place_an_order():
         "status": "placed",
         "complete": True,
     }
-    response = requests.post(constants.BASE_URL + "/store/order", headers=headers, json=body)
+    response = requests.post(f'{constants.BASE_URL}/store/order', headers=headers, json=body)
     data = json.loads(response.content)
     assert data["status"] == 'placed'
     assert data["petId"] == 999

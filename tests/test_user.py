@@ -13,5 +13,7 @@ headers = {
 }
 
 def test_login_as_user():
-    response = requests.get(constants.BASE_URL + "/user/login?username=username&password=password", headers=headers)
+    USERNAME="username"
+    PASSWORD="password"
+    response = requests.get(f'{constants.BASE_URL}/user/login?username={USERNAME}&password={PASSWORD}', headers=headers)
     assert response.status_code == 200

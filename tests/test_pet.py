@@ -13,7 +13,6 @@ headers = {
     "Content-Type": "application/json",
 }
 
-
 # check status code, response body matches input body
 def test_add_pet():
     body = {
@@ -24,7 +23,7 @@ def test_add_pet():
         "tags": [{"id": 0, "name": "string"}],
         "status": "available",
     }
-    response = requests.post(constants.BASE_URL + "/pet", headers=headers, json=body)
+    response = requests.post(f"{constants.BASE_URL}/pet", headers=headers, json=body)
     data = json.loads(response.content)
     assert response.status_code == 200
     assert data == body
@@ -36,7 +35,7 @@ def test_find_pet_by_status():
     for status in status_options:
         params = {"status": status}
         response = requests.get(
-            constants.BASE_URL + "/pet/findByStatus", headers=headers, params=params
+            f"{constants.BASE_URL}/pet/findByStatus", headers=headers, params=params
         )
         data = json.loads(response.content)
         assert response.status_code == 200
