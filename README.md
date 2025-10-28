@@ -18,8 +18,7 @@ Development has been performed within a virtual python environment, isolating im
 
 ## Tests
 
-1. run `python3 src/get_api_spec.py` to generate pet store api spec
-2. run `pytest --html=report.html --self-contained-html`
+1. run `pytest --html=report.html --self-contained-html`
 
 ![img](./example-report.png)
 
