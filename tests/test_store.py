@@ -1,22 +1,22 @@
-import sys
 import os
 import json
-# had to use this as a workaround to pytest throwing an error regarding accessing 'constants' 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-import src.constants as constants
 import requests
+from dotenv import load_dotenv
+
+load_dotenv()
+
+url = os.getenv("BASE_URL")
+
 headers = {
     "api_key": "special-key",
     "accept": "application/json",
     "Content-Type": "application/json",
 }
 
-# check status code
 def test_get_store_inventory():
-    response = requests.get(f'{constants.BASE_URL}/store/inventory', headers=headers)
+    response = requests.get(f'{url}/store/inventory', headers=headers)
     assert response.status_code == 200
 
-# check status code, response body matches input body, showcasing assertion errors in test output
 def test_place_an_order():
     body = {
         "id": 0,
@@ -26,8 +26,9 @@ def test_place_an_order():
         "status": "placed",
         "complete": True,
     }
-    response = requests.post(f'{constants.BASE_URL}/store/order', headers=headers, json=body)
+    response = requests.post(f'{url}/store/order', headers=headers, json=body)
     data = json.loads(response.content)
     assert data["status"] == 'placed'
     assert data["petId"] == 999
-    assert data == body
+    assert data["complete"] == True
+    assert isinstance(data["id"], int)

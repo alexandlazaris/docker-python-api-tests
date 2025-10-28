@@ -1,10 +1,10 @@
-import sys
 import os
 import json
 import requests
 from dotenv import load_dotenv
 
 load_dotenv()
+
 url = os.getenv("BASE_URL")
 
 headers = {
