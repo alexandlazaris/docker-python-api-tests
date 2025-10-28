@@ -1,5 +1,10 @@
-# challenge-rest-python
-Python API tests for https://petstore.swagger.io
+
+[![Run python API tests](https://github.com/alexandlazaris/challenge-rest-python/actions/workflows/run-tests.yml/badge.svg?branch=main)](https://github.com/alexandlazarischallenge-rest-python/actions/workflows/run-tests.yml)
+
+# python-api-docker
+Dockerized api tests in python.  
+
+Target API: https://petstore.swagger.io
 
 ## Setting up env
 
