@@ -1,0 +1,13 @@
+# Ignore common development and build-related files/directories
+.git/
+.github/
+.gitignore
+node_modules/
+virt/
+__pycache__/
+*.log
+*.tmp
+*.swp
+.DS_Store
+.env
+*.png
