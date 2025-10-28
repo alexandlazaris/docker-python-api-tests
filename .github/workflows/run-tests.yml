@@ -17,12 +17,4 @@ jobs:
       run: docker build -t python-api-tests:latest .
 
     - name: Run api tests container
-      run: docker run python-api-tests:latest
-    
-    # # store html test report
-    # - name: Upload HTML Report
-    #   uses: actions/upload-artifact@v4
-    #   if: ${{ !cancelled() }}
-    #   with:
-    #     name: html-report
-    #     path: ./report.html  
+      run: docker run -e BASE_URL="$BASE_URL" python-api-tests:latest
