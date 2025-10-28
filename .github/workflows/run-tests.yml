@@ -8,6 +8,8 @@ jobs:
   test:
     timeout-minutes: 5
     runs-on: ubuntu-latest
+    env:
+        BASE_URL: ${{ secrets.BASE_URL }}
     steps:
     - uses: actions/checkout@v4
     
